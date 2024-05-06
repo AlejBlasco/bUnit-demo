@@ -1,0 +1,17 @@
+﻿@page "/childcontentparam"
+
+<PageTitle>ChildContentParam</PageTitle>
+
+<h3>ChildContentParam</h3>
+
+@if(ChildContent != null)
+{
+    <div class="child">
+        @ChildContent
+    </div>
+}
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
