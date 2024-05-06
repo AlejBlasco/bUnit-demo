@@ -1,0 +1,25 @@
+﻿@page "/displaylist"
+
+<PageTitle>DisplayList</PageTitle>
+
+<h1>DisplayList</h1>
+
+<p>Your number is: @Number</p>
+
+@if (Items != null)
+{
+    <ul>
+        @foreach (var item in Items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+@code {
+    [Parameter]
+    public List<string>? Items { get; set; }
+
+    [Parameter]
+    public int Number { get; set; }
+}
