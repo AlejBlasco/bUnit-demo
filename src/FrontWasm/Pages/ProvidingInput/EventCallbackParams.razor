@@ -1,0 +1,14 @@
+﻿@page "/eventcallbackparams"
+
+<PageTitle>EventCallbackParams</PageTitle>
+
+<h3>EventCallbackParams</h3>
+
+<button @onclick="HandleClick">Click me</button>
+
+@code {
+    [Parameter]
+    public Action<MouseEventArgs>? OnClickHandler { get; set; }
+
+    private void HandleClick(MouseEventArgs e) => OnClickHandler?.Invoke(e);
+}

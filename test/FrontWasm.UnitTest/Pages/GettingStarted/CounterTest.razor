@@ -1,8 +1,8 @@
-﻿using FrontWasm.Pages;
+﻿@using FrontWasm.Pages.GettingStarted
 
-namespace FrontWasm.UnitTest.Pages;
+@inherits TestContext
 
-public class CounterCSharpTest : TestContext
+@code
 {
     [Fact]
     public void Counter_should_start_at_zero()

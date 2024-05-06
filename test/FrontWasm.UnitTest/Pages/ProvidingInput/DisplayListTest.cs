@@ -1,10 +1,10 @@
 ﻿using AngleSharp;
 using FluentAssertions;
-using FrontWasm.Pages;
+using FrontWasm.Pages.ProvidingInput;
 using System;
 using System.Collections.Generic;
 
-namespace FrontWasm.UnitTest.Pages;
+namespace FrontWasm.UnitTest.Pages.ProvidingInput;
 
 public class DisplayListTest : TestContext
 {

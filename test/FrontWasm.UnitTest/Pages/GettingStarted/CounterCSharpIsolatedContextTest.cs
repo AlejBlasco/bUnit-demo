@@ -1,14 +1,15 @@
-﻿@using FrontWasm.Pages
+﻿using FrontWasm.Pages.GettingStarted;
 
-@inherits TestContext
+namespace FrontWasm.UnitTest.Pages.GettingStarted;
 
-@code
+public class CounterCSharpIsolatedContextTest
 {
     [Fact]
     public void Counter_should_start_at_zero()
     {
         // Arrange
-        var actual = RenderComponent<Counter>();
+        using var ctx = new TestContext();
+        var actual = ctx.RenderComponent<Counter>();
 
         // Act
 
@@ -21,7 +22,8 @@
     public void OnClick_should_increment_number()
     {
         // Arrange
-        var actual = RenderComponent<Counter>();
+        using var ctx = new TestContext();
+        var actual = ctx.RenderComponent<Counter>();
 
         // Act
         actual.Find("button")
