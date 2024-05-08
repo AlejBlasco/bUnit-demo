@@ -1,0 +1,37 @@
+﻿@page "/triggeringcustomevents"
+
+<PageTitle>Triggering Custom Events</PageTitle>
+
+<h1>Triggering Custom Events</h1>
+
+<label>Try pasting into the following text box:</label>
+<input @oncustompaste="HandleCustomPaste" />
+<p>@message</p>
+<button @onclick="HandleClick">Clear Message</button>
+
+
+@code {
+    private string message { get; set; } = string.Empty;
+
+    void HandleCustomPaste(CustomPasteEventArgs eventArgs)
+    {
+        message = $"You pasted: {eventArgs.PastedData}";
+    }
+
+    void HandleClick(MouseEventArgs eventArgs)
+    {
+        message = string.Empty;
+    }
+
+    [EventHandler("oncustompaste", typeof(CustomPasteEventArgs), enableStopPropagation: true, enablePreventDefault: true)]
+    public static class EventHandlers
+    {
+    }
+
+    public class CustomPasteEventArgs : EventArgs
+    {
+        // Data for these properties will be supplied by custom JavaScript logic
+        public DateTime EventTimestamp { get; set; }
+        public string? PastedData { get; set; }
+    }
+}
