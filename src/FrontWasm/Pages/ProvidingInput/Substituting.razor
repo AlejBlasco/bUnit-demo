@@ -1,0 +1,13 @@
+﻿@page "/substituting"
+
+<PageTitle>Substituting</PageTitle>
+
+<h3>Substituting</h3>
+
+<p>Let's show a clock</p>
+<Bar dateTime="dateTime" />
+
+@code {
+    [Parameter]
+    public DateTime dateTime { get; set; }
+}

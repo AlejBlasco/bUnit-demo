@@ -1,19 +1,20 @@
-﻿@page "/weather"
-@inject HttpClient Http
+﻿@page "/injectservices"
 
-<PageTitle>Weather</PageTitle>
+@using FrontWasm.Components
 
-<h1>Weather</h1>
+@inject IWeatherForecastService ForecastService
 
-<p>This component demonstrates fetching data from the server.</p>
+<PageTitle>InjectServices</PageTitle>
 
-@if (forecasts == null)
+<h3>InjectServices</h3>
+
+@if (forecasts is null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Date</th>
@@ -36,22 +37,12 @@ else
     </table>
 }
 
-@code {
-    private WeatherForecast[]? forecasts;
+@code
+{
+    public WeatherForecast[]? forecasts { get; private set; }
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-    }
-
-    public class WeatherForecast
-    {
-        public DateOnly Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string? Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        forecasts = await ForecastService.GetForecastAsync();
     }
 }

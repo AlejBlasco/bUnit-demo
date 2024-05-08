@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using static FrontWasm.Pages.Weather;
 
 namespace FrontWasm.Components
 {
@@ -82,6 +81,16 @@ namespace FrontWasm.Components
 
             return result;
         }
+    }
 
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 }

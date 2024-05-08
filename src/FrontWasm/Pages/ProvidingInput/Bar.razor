@@ -1,0 +1,34 @@
+﻿<div class="datetime">
+        <div class="date">
+            <span>@dateTime.ToShortDateString()</span>
+        </div>
+        <div class="time">
+            <span>@dateTime.ToShortTimeString()</span>
+        </div>
+</div>
+
+<style type="text/css">
+    .datetime {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .date {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .time {
+        font-size: 24px;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public DateTime dateTime { get; set; }
+}
