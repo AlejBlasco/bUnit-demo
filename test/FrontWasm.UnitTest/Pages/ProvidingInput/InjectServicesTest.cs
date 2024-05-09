@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FrontWasm.Components;
+using FrontWasm.Pages.ProvidingInput;
 
 namespace FrontWasm.UnitTest.Pages.ProvidingInput
 {
